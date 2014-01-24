@@ -1,5 +1,6 @@
 == Fronnect
 
+Organize an event that you are interested in, or join in on what your friends are planning.
 
 === To install
 
