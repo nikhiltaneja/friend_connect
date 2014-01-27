@@ -2,6 +2,6 @@
 
 Have fun at the event: <%= @event.title %>
 
-Don't forget that the event is on: <%= @event.starts_at %>
+Don't forget that the event is on: <%= @event.starts_at.strftime('%a, %b %d, %l:%M %p') %>
 
 -The Fronnect Team
