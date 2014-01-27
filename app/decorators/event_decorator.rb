@@ -1,5 +1,3 @@
-
-
 class EventDecorator < Draper::Decorator
   delegate_all
 
@@ -13,6 +11,6 @@ class EventDecorator < Draper::Decorator
   #   end
 
   def starts_at
-    object.starts_at.strftime('%a, %b %d')
+    object.starts_at.strftime('%a, %b %d, %l:%M %p')
   end
 end
