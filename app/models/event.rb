@@ -8,7 +8,7 @@ class Event < ActiveRecord::Base
   validates :venue, presence: true, length: { minimum: 3, maximum:255 }
 
   def self.future_events
-    where('starts_at >= ?',Time.now)
+    order(:starts_at).where('starts_at >= ?',Time.now)
   end
 
 end

@@ -26,7 +26,8 @@ describe "creating an event", :js => true do
     fill_in 'Venue',       with: 'my house'
     fill_in 'Address',     with: 'down the street'
     find(".date_calendar").click
-    click_link('28')
+    find('.ui-datepicker-next').click
+    click_link('10')
     within('.actions') do
       click_on 'Create Event'
     end
