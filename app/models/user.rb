@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
   def attendee?(event)
     Attendee.exists?(event_id: event.id, user_id: self.id)
   end
+
+  def host?(event)
+    self.id == event.host
+  end
 end

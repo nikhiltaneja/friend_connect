@@ -11,4 +11,8 @@ class Event < ActiveRecord::Base
     order(:starts_at).where('starts_at >= ?',Time.now)
   end
 
+  def host
+    self.user_id
+  end
+
 end
