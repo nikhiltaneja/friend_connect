@@ -35,7 +35,7 @@
 
 <table>
   <tr>
-    <% if current_user.attendee?(@event) %>
+    <% if current_user.attendee?(@event) || current_user.host?(@event) %>
       <td></td>
     <% else %>
       <td><%= button_to "I'm in!", event_attendees_path(@event), method: :post, class: "btn btn-primary btn-sm" %></td>
