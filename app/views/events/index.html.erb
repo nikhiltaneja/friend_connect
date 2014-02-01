@@ -4,21 +4,9 @@
     <h2>What your friends want to do</h2>
 
     <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>Host</th>
-          <th>What</th>
-          <th>Where</th>
-          <th>When</th>
-          <th></th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
+      <%= render partial: "events/events_table_header" %>
 
-      <tbody>
-        <%= render partial: "events/event", collection: @events %>
-      </tbody>
+      <%= render partial: "events/event", collection: @events %>
     </table>
   </div>
 
@@ -28,24 +16,12 @@
   </div>
 </div>
 
-<h2>Your weekend plans</h2>
+<h2>Your plans</h2>
 
 <table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Host</th>
-      <th>What</th>
-      <th>Where</th>
-      <th>When</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <%= render partial: "/events/user_events", collection: @user_events, as: :event %>
-  </tbody>
+  <%= render partial: "events/events_table_header" %>
+  
+  <%= render partial: "/events/user_events", collection: @user_events, as: :event %>
 </table>
 
 

@@ -1,8 +1,9 @@
-<tr>
-  <td><%= link_to event.user.username, user_path(event.user) %></td>
-  <td><%= event.title %></td>
-  <td><%= event.venue %></td>
-  <td><%= event.starts_at %></td>
-  <td><%= button_to 'More Details', event_path(event), method: :get, class: "btn btn-info btn-sm" %></td>
-  
-</tr>
+<tbody>
+  <tr>
+    <td><%= link_to event.user.username, user_path(event.user) %></td>
+    <td><%= event.title %></td>
+    <td><%= event.venue %></td>
+    <td><%= event.starts_at %></td>
+    <td><%= button_to 'More Details', event_path(event), method: :get, class: "btn btn-info btn-sm" %></td> 
+  </tr>
+</tbody>

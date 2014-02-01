@@ -4,8 +4,8 @@ class Event < ActiveRecord::Base
   has_many :attendees
 
   validates :user_id, presence: true
-  validates :title, presence: true, length: { minimum: 3, maximum:255 }
-  validates :venue, presence: true, length: { minimum: 3, maximum:255 }
+  validates :title, presence: true, length: { minimum: 2, maximum:255 }
+  validates :venue, presence: true, length: { minimum: 2, maximum:255 }
 
   def self.future_events
     order(:starts_at).where('starts_at >= ?',Time.now)
