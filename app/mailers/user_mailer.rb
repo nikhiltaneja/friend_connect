@@ -1,9 +1,9 @@
 class UserMailer < ActionMailer::Base
   default from: "fronnect@gmail.com"
 
-  def rsvp_confirmation(attendee)
-    @user = User.find(attendee.user_id)
-    @event = Event.find(attendee.event_id)
+  def rsvp_confirmation(user_id, event_id)
+    @user = User.find(user_id)
+    @event = Event.find(event_id)
     host = @event.user
     mail(:to => @user.email, :cc => host.email, :subject => "RSVP")
   end

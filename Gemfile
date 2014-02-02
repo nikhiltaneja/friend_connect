@@ -14,10 +14,8 @@ gem 'jbuilder', '~> 1.2'
 gem 'draper'
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
-gem 'selenium-webdriver'
-
 gem 'rails_12factor', group: :production
-
+gem "resque", '~> 1.25.1'
 
 group :doc do
   gem 'sdoc', require: false
@@ -31,6 +29,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'selenium-webdriver'
 end
 
 ruby '2.0.0'

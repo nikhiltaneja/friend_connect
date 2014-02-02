@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "creating an event", :js => true do
+describe "creating an event" do
   before :each do
     @user = User.create(:email => "foo@bar.com",
                         :password => "foobar!!",
@@ -12,7 +12,7 @@ describe "creating an event", :js => true do
     expect(page).to have_content 'You need to sign in'
   end
 
-  it 'allows logged in user to create an event' do
+  it 'allows logged in user to create an event', js: true do
     # sign in the user
     visit new_user_session_path
     fill_in 'Email', with: 'foo@bar.com'
@@ -32,5 +32,17 @@ describe "creating an event", :js => true do
       click_on 'Create Event'
     end
     expect(page).to have_content 'Big thing'
+  end
+
+  it 'sends an email to host and attendee' do
+    User.create(email: 'nikhil@example.com', password: 'password', password_confirmation: 'password')
+    Event.create(user_id: @user.id, title: 'Super Bowl', venue: "Nikhil's Apartment", starts_at: "2014-02-14 07:00:00")
+    visit new_user_session_path
+    fill_in 'Email', with: 'nikhil@example.com'
+    fill_in 'Password', with: 'password'
+    click_on 'Sign in'
+    visit root_path
+    click_on("I'm in!")
+    assert_equal 1, ActionMailer::Base.deliveries.count
   end
 end

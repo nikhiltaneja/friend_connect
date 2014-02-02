@@ -3,8 +3,7 @@ class AttendeesController < ApplicationController
   def create
     event = Event.find(params[:event_id])
     attendee = event.attendees.new(:user_id => current_user.id)
-    # @user = current_user
-    UserMailer.rsvp_confirmation(attendee).deliver
+    Resque.enqueue(Mailing, attendee.user_id, attendee.event_id)
     if attendee.save
       redirect_to root_path, notice: "You're in!"
     else
