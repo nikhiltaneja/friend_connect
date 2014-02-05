@@ -6,6 +6,8 @@ require 'rspec/autorun'
 require 'capybara/rails'
 require 'capybara/rspec'
 
+Capybara.javascript_driver = :webkit
+
 Resque.inline = true
 
 # Requires supporting ruby files with custom matchers and macros, etc,

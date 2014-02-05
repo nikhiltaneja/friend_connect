@@ -29,7 +29,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'selenium-webdriver'
+  gem "capybara-webkit"
 end
 
 ruby '2.0.0'
