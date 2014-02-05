@@ -1,5 +1,7 @@
 Fronnect::Application.routes.draw do
 
+  require "resque_web"
+
   resources :events do
     resources :attendees
   end
@@ -8,6 +10,9 @@ Fronnect::Application.routes.draw do
   resources :users, only: [:show]
 
   root 'events#index'
+
+  mount ResqueWeb::Engine => "/resque_web"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

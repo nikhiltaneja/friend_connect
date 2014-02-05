@@ -16,6 +16,7 @@ gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
 gem 'rails_12factor', group: :production
 gem "resque", '~> 1.25.1'
+gem 'resque-web', require: 'resque_web'
 
 group :doc do
   gem 'sdoc', require: false
